@@ -1,0 +1,347 @@
+﻿[
+  {
+    "questionText": "\r\n== Please input the new application name:\n   (Press <Enter> to skip this step and use the default name)",
+    "type": "text",
+    "defaultAnswer": "angularapp",
+    "resultMessage": "Application name updated to [{questionAnswer}].",
+    "actionList": [
+      {
+        "actionType": "replaceValue",
+        "path": "package.json",
+        "originalValue": "angularapp",
+        "newValue": "{questionAnswer}"
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Please input the new application description:\n   (Press <Enter> to skip this step and use the default name)",
+    "type": "text",
+    "defaultAnswer": "Angular app",
+    "resultMessage": "Application description updated to [{questionAnswer}].",
+    "actionList": [
+      {
+        "actionType": "replaceValue",
+        "path": "package.json",
+        "originalValue": "angular app",
+        "newValue": "{questionAnswer}"
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Please select the application layout:\n\t1) Side Nav\n\t2) Top Nav\n   (Enter number 1,2 or press <Enter> for 1 as default)",
+    "type": "number",
+    "defaultAnswer": "1",
+    "questionOptions": [
+      {
+        "answer": "1",
+        "resultMessage": "[Side Nav] application layout is set up.",
+        "actionList": [
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\app\\core\\layout",
+            "value": "src\\app\\core\\layout\\layout.component.html|src\\app\\core\\layout\\layout.component.scss|src\\app\\core\\layout\\layout.component.ts"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\app\\core\\nav",
+            "value": "src\\app\\core\\nav\\nav.component.html|src\\app\\core\\nav\\nav.component.scss|src\\app\\core\\nav\\nav.component.ts"
+          }
+        ]
+      },
+      {
+        "answer": "2",
+        "resultMessage": "[Top Nav] application layout is set up.",
+        "actionList": [
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\core\\core.module.ts",
+            "originalValue": "LayoutComponent",
+            "newValue": "LayoutVerticalComponent"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\core\\core.module.ts",
+            "originalValue": "layout.component",
+            "newValue": "layout-vertical.component"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\app\\core\\layout",
+            "value": "src\\app\\core\\layout\\layout-vertical.component.html|src\\app\\core\\layout\\layout-vertical.component.scss|src\\app\\core\\layout\\layout-vertical.component.ts"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\core\\core.module.ts",
+            "originalValue": "NavComponent",
+            "newValue": "NavTopComponent"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\core\\core.module.ts",
+            "originalValue": "nav.component",
+            "newValue": "nav-top.component"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\app\\core\\nav",
+            "value": "src\\app\\core\\nav\\nav-top.component.html|src\\app\\core\\nav\\nav-top.component.scss|src\\app\\core\\nav\\nav-top.component.ts"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\app.component.html",
+            "originalValue": "app-layout",
+            "newValue": "app-layout-vertical"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Please select the home page layout:\n1) Dashboard\n2) Grid Icon Menu\n   (Enter number 1,2 or press <Enter> for 1 as default)",
+    "type": "number",
+    "defaultAnswer": "1",
+    "questionOptions": [
+      {
+        "answer": "1",
+        "resultMessage": "[Dashboard] home page layout is set up.",
+        "actionList": [
+          {
+            "actionType": "deleteFolder",
+            "path": "src\\app\\home\\icon-menu"
+          }
+        ]
+      },
+      {
+        "answer": "2",
+        "resultMessage": "[Grid Icon Menu] home page layout is set up.",
+        "actionList": [
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\home\\home-routing.module.ts",
+            "originalValue": "DashboardComponent",
+            "newValue": "IconMenuComponent"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\home\\home-routing.module.ts",
+            "originalValue": "dashboard/dashboard.component",
+            "newValue": "icon-menu/icon-menu.component"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\home\\home.module.ts",
+            "originalValue": "DashboardComponent",
+            "newValue": "IconMenuComponent"
+          },
+          {
+            "actionType": "replaceValue",
+            "path": "src\\app\\home\\home.module.ts",
+            "originalValue": "dashboard/dashboard.component",
+            "newValue": "icon-menu/icon-menu.component"
+          },
+          {
+            "actionType": "deleteFolder",
+            "path": "src\\app\\home\\dashboard"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Please select the application theme:\n1) Dow default\n2) Bootstrap\n3) Black\n   (Enter number 1-3 or press <Enter> for 1 as default)",
+    "type": "number",
+    "defaultAnswer": "1",
+    "questionOptions": [
+      {
+        "answer": "1",
+        "resultMessage": "[Dow default] theme is set up.",
+        "actionList": [
+          {
+            "actionType": "replaceValue",
+            "path": "src\\assets\\scss\\_theme.scss",
+            "originalValue": "default",
+            "newValue": "default"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\assets\\scss\\kendo-bootstrap-overrides\\themes",
+            "value": "src\\assets\\scss\\kendo-bootstrap-overrides\\themes\\_default.scss"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\assets\\scss\\shared\\themes",
+            "value": "src\\assets\\scss\\shared\\themes\\_default.scss"
+          }
+        ]
+      },
+      {
+        "answer": "2",
+        "resultMessage": "[Bootstrap] theme is set up.",
+        "actionList": [
+          {
+            "actionType": "replaceValue",
+            "path": "src\\assets\\scss\\_theme.scss",
+            "originalValue": "default",
+            "newValue": "bootstrap"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\assets\\scss\\kendo-bootstrap-overrides\\themes",
+            "value": "src\\assets\\scss\\kendo-bootstrap-overrides\\themes\\_bootstrap.scss"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\assets\\scss\\shared\\themes",
+            "value": "src\\assets\\scss\\shared\\themes\\_bootstrap.scss"
+          }
+        ]
+      },
+      {
+        "answer": "3",
+        "resultMessage": "[Black] theme is set up.",
+        "actionList": [
+          {
+            "actionType": "replaceValue",
+            "path": "src\\assets\\scss\\_theme.scss",
+            "originalValue": "default",
+            "newValue": "black"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\assets\\scss\\kendo-bootstrap-overrides\\themes",
+            "value": "src\\assets\\scss\\kendo-bootstrap-overrides\\themes\\_black.scss"
+          },
+          {
+            "actionType": "deleteFilesExcept",
+            "path": "src\\assets\\scss\\shared\\themes",
+            "value": "src\\assets\\scss\\shared\\themes\\_black.scss"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Do you want to include the user role administration module? (Y/N)\n   (Press <Enter> for Y)",
+    "type": "bool",
+    "defaultAnswer": "Y",
+    "questionOptions": [
+      {
+        "answer": "N",
+        "resultMessage": "User role administration module is removed.",
+        "actionList": [
+          {
+            "actionType": "deleteLine",
+            "path": "src\\app\\app-routing.module.ts",
+            "value": "  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },"
+          },
+          {
+            "actionType": "deleteLine",
+            "path": "src\\app\\core\\menu.service.ts",
+            "value": "    {\r\n      title: 'Admin', key: '/admin',\r\n      children: [\r\n        { title: 'User List', routerLink: '/admin/user_list' }\r\n      ]\r\n    },"
+          },
+          {
+            "actionType": "deleteFolder",
+            "path": "src\\app\\admin"
+          }
+        ]
+      },
+      {
+        "answer": "Y",
+        "resultMessage": "User role administration module is included.",
+        "actionList": [
+        ]
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Do you want to include the sample module? (Y/N)\n   (Press <Enter> for Y)",
+    "type": "bool",
+    "defaultAnswer": "Y",
+    "resultMessage": "",
+    "questionOptions": [
+      {
+        "answer": "N",
+        "resultMessage": "Sample module is removed.",
+        "actionList": [
+          {
+            "actionType": "deleteLine",
+            "path": "src\\app\\app-routing.module.ts",
+            "value": "  { path: 'sample', loadChildren: './sample/sample.module#SampleModule' },"
+          },
+          {
+            "actionType": "deleteLine",
+            "path": "src\\app\\core\\menu.service.ts",
+            "value": "    {\r\n      title: 'Sample', key: '/sample',\r\n       children: [\r\n        { title: 'Order List', routerLink: '/sample/order_list' },\r\n        { title: 'Product Form', routerLink: '/sample/product_form' }\r\n      ]\r\n    },"
+          },
+          {
+            "actionType": "deleteFolder",
+            "path": "src\\app\\sample"
+          }
+        ]
+      },
+      {
+        "answer": "Y",
+        "resultMessage": "Sample module is included.",
+        "actionList": [
+        ]
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Do you want to include the Power BI report module? (Y/N)\n   (Press <Enter> for Y)",
+    "type": "bool",
+    "defaultAnswer": "Y",
+    "resultMessage": "",
+    "questionOptions": [
+      {
+        "answer": "N",
+        "resultMessage": "Power BI report module is removed.",
+        "actionList": [
+          {
+            "actionType": "deleteLine",
+            "path": "src\\app\\app-routing.module.ts",
+            "value": "  { path: 'report', loadChildren: './report/report.module#ReportModule' },"
+          },
+          {
+            "actionType": "deleteLine",
+            "path": "src\\app\\core\\menu.service.ts",
+            "value": "    {\r\n      title: 'Report', key: '/report',\r\n      children: [\r\n        { title: 'Report Sample', routerLink: '/report/report_sample' }\r\n      ]\r\n    },"
+          },
+          {
+            "actionType": "deleteFolder",
+            "path": "src\\app\\report"
+          }
+        ]
+      },
+      {
+        "answer": "Y",
+        "resultMessage": "Power BI report module is included.",
+        "actionList": [
+        ]
+      }
+    ]
+  },
+  {
+    "questionText": "\r\n== Please input the new project folder name if you want to rename it (e.g. 'Dow.XXXX'):\n   (Press <Enter> to skip this step and use the default name)",
+    "type": "text",
+    "defaultAnswer": "AngularAppV5",
+    "resultMessage": "Application folder name is updated to [{questionAnswer}].",
+    "actionList": [
+      {
+        "actionType": "deleteLine",
+        "path": "src\\tsconfig.app.json",
+        "value": "    \"./app/core/layout/layout-vertical.component.ts\","
+      },
+      {
+        "actionType": "deleteLine",
+        "path": "src\\tsconfig.app.json",
+        "value": "    \"./app/core/nav/nav-top.component.ts\","
+      },
+      {
+        "actionType": "deleteLine",
+        "path": "src\\tsconfig.app.json",
+        "value": "    \"./app/home/icon-menu/icon-menu.component.ts\","
+      }
+    ]
+  }
+]
