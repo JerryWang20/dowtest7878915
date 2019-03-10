@@ -120,8 +120,6 @@ renameFolder,Dow.Template.AngularApp.Data.EF
 delete,Dow.Template.AngularApp.Database\Dow.Template.AngularApp.Database.sqlproj.vspscc
 deleteFolder,Dow.Template.AngularApp.Database\bin
 deleteFolder,Dow.Template.AngularApp.Database\obj
-modify,Dow.Template.AngularApp.Database\Dow.Template.AngularApp.Database.publish.xml
-rename,Dow.Template.AngularApp.Database\Dow.Template.AngularApp.Database.publish.xml
 modify,Dow.Template.AngularApp.Database\Dow.Template.AngularApp.Database.refactorlog
 rename,Dow.Template.AngularApp.Database\Dow.Template.AngularApp.Database.refactorlog
 modify,Dow.Template.AngularApp.Database\Dow.Template.AngularApp.Database.sqlproj
