@@ -31,15 +31,11 @@ steps:
     verbose: false
     customCommand: 'run build'
 
-
-- task: AzureRmWebAppDeployment@3
-  displayName: 'Azure App Service Deploy: dowtest78789'
+- task: AzureWebApp@1
+  displayName: 'Azure Web App Deploy'
   inputs:
     azureSubscription: AzureDevopsplus
-
     appType: webApp
-
-    WebAppName: dowtest78789
-
-    Package: dist
+    appName: AzureWebDevopsplus
+    package: '$(System.DefaultWorkingDirectory)/**/web/dist'
 
