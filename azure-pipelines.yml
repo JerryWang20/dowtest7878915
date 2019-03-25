@@ -19,27 +19,27 @@ steps:
 - task: Npm@1
   displayName: 'npm install'
   inputs:
+    workingDir: web
     verbose: false
 
 
 - task: Npm@1
-  displayName: 'npm custom'
+  displayName: 'npm build'
   inputs:
     command: custom
-
+    workingDir: web
     verbose: false
-
-    customCommand: 'run-script build'
+    customCommand: 'run build'
 
 
 - task: AzureRmWebAppDeployment@3
-  displayName: 'Azure App Service Deploy: dowtestabcd237'
+  displayName: 'Azure App Service Deploy: dowtest78789'
   inputs:
     azureSubscription: AzureDevopsplus
 
     appType: webApp
 
-    WebAppName: dowtestabcd237
+    WebAppName: dowtest78789
 
     Package: dist
 
