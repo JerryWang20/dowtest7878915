@@ -31,11 +31,34 @@ steps:
     verbose: false
     customCommand: 'run build'
 
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: api/dow.devopsplus.sln
+    vstsFeed: '534da1e6-36f5-4fb0-baf6-faee4b20096c'
+
+- task: MSBuild@1
+  displayName: 'Build Webapi'
+  inputs:
+    solution: api/dow.devopsplus.sln
+    msbuildArchitecture: x64
+    platform: 'any cpu'
+    configuration: 'release'
+    msbuildArguments: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
+
 - task: AzureWebApp@1
-  displayName: 'Azure Web App Deploy'
+  displayName: 'Azure Web Deploy'
   inputs:
     azureSubscription: AzureDevopsplus
     appType: webApp
     appName: AzureWebDevopsplus
     package: '$(System.DefaultWorkingDirectory)/**/web/dist'
+
+- task: AzureWebApp@1
+  displayName: 'Azure API Deploy'
+  inputs:
+    azureSubscription: AzureDevopsplus
+    appType: webApp
+    appName: AzureApiDevopsplus
+    package: '$(build.artifactstagingdirectory)/**/*.zip'
 
