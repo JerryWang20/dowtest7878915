@@ -2,7 +2,7 @@
   "version": "5.0.0",
   "private": true,
   "name": "angularapp",
-  "description": "angular app",
+  "description": "Angular app",
   "author": "Dow IS Shared Dev SH",
   "dependencies": {
     "@angular/cdk": "^5.2.5",
