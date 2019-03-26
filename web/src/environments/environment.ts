@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   baseUrl: 'https://localhost:44335/api',
   appInsights: {
-    instrumentationKey: '08eec091-3c9e-40df-9d0d-ea620a306b7b'
+    instrumentationKey: '547fbec2-7801-4871-8f2f-7a15ac5a9a98'
   },
   adalConfig: {
     tenant: 'c3e32f53-cb7f-4809-968d-1cc4ccc785fe',

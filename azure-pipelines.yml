@@ -34,13 +34,13 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: api/dow.devopsplus.sln
+    restoreSolution: api/dow.dowtest7878915.sln
     vstsFeed: '534da1e6-36f5-4fb0-baf6-faee4b20096c'
 
 - task: MSBuild@1
   displayName: 'Build Webapi'
   inputs:
-    solution: api/dow.devopsplus.sln
+    solution: api/dow.dowtest7878915.sln
     msbuildArchitecture: x64
     platform: 'any cpu'
     configuration: 'release'
@@ -49,14 +49,14 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Azure Web Deploy'
   inputs:
-    azureSubscription: AzureDevopsplusSubscription
+    azureSubscription: AzureDevopsplus-8fbef4e7-3b4c-47f8-bfbb-3e06d3c0e800
     appType: webApp
-    appName: AzureWebDevopsplus
+    appName: dowtest7878915
     package: '$(System.DefaultWorkingDirectory)/**/web/dist'
 
 - task: AzureRmWebAppDeployment@4
   displayName: 'Azure API Deploy'
   inputs:
-    azureSubscription: AzureDevopsplusSubscription
-    WebAppName: AzureApiDevopsplus
+    azureSubscription: AzureDevopsplus-8fbef4e7-3b4c-47f8-bfbb-3e06d3c0e800
+    WebAppName: dowtest7878915api
     packageForLinux: '$(build.artifactstagingdirectory)/**/*.zip'
